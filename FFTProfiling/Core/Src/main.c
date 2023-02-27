@@ -143,23 +143,32 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   printf("Starting FFT...\r\n");
-
 	/* NAIVE IMPLEMENTATION BEGIN */
-	
+
+	ResetTimer();
+  	StartTimer();
 	float* vectorReal = (float*) calloc(vectorSize, sizeof(float));
 	float* vectorImag = (float*) calloc(vectorSize, sizeof(float));
 	
+	/*
 	for(int i=0;i<vectorSize;i++){
 		vectorReal[i] = 1;
 	}
-	
 	Fft_transform(vectorReal, vectorImag, vectorSize);
-
+	*/
 		/* NAIVE IMPLEMENTATION END */
-	
+  	  /*
+	StopTimer();
+	naiveRuntime = getCycles();
+	printf("Naive implementation took");
+	printf("%d", naiveRuntime);
+
+	*/
+
 	/* CMSIS IMPLEMENTATION BEGIN */
-	/*
 	
+  	ResetTimer();
+    StartTimer();
 	float* cmsisVectorBuffer = (float*) calloc(2*vectorSize, sizeof(float));
 	
 	for(int i=0;i<vectorSize;i++){
@@ -170,10 +179,14 @@ int main(void)
 		cmsisVectorBuffer[2*i] = vectorReal[i];
 		cmsisVectorBuffer[2*i+1] = vectorImag[i];
 	}
-
-	arm_cfft_radix2_f32(fft_struct, cmsisVectorBuffer);
+	//CHANGED FROM *" TO q
+	arm_cfft_radix2_q31(fft_struct, cmsisVectorBuffer);
 	
-		*/
+	StopTimer();
+	cmsisRuntime = getCycles();
+	printf("CSMIS implementation took");
+	printf("%d", cmsisRuntime);
+
 	/* CMSIS IMPLEMENTATION END */
 	
 //	for(int i=0;i<vectorSize;i++){
