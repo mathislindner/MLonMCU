@@ -1,0 +1,4 @@
+[submodule "pulp-nn-q"]
+	path = pulp-nn-q
+	url = git@iis-git.ee.ethz.ch:approximate_model_learning/pulp-nn-q.git
+	branch = Alessio-working
