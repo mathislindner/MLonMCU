@@ -20,7 +20,10 @@
 #include "main.h"
 #include "usart.h"
 #include "gpio.h"
+
 #include "stdio.h"
+#include "app.h"
+#include "CycleCounter.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -97,13 +100,19 @@ int main(void)
   return len;
   }
 
+
   printf("starting inference");
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  ResetTimer();
     /* USER CODE END WHILE */
-
+	  StartTimer();
+	  int class = application();
+	  EndTimer();
+	  int cycles = getCycles();
+	  printf("Prediction took: %s cycles", cycles);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
