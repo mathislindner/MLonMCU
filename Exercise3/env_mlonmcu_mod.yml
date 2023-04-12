@@ -1,0 +1,13 @@
+name: mlonmcu_lab2
+channels:
+  - http://conda.anaconda.org/gurobi
+  - defaults
+dependencies:
+  - python=3.8
+  - jupyter
+  - numpy
+  - matplotlib
+  - pandas
+  - yaml
+prefix: /home/victor/.conda/envs/mlonmcu_lab2
+

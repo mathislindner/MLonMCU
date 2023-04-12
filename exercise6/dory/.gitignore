@@ -1,0 +1,8 @@
+# ignore all logs
+*.log
+__pycache__
+applicationL2/BUILD
+application/BUILD
+applicationL3/BUILD
+application
+
