@@ -7,12 +7,10 @@
 """
 MemeNet network description
 """
-#from signal import pause
+from signal import pause
 from torch import nn
 
-import os 
-print(os.getcwd())
-from exercise8.max.ai8xtraining import ai8x
+import ai8x
 
 import matplotlib
 import matplotlib.pyplot as plt
